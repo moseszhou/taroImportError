@@ -16,6 +16,11 @@ if (process.env.NODE_ENV !== "production") {
   middlewares.push(createLogger());
 }
 
+// eslint-disable-next-line no-undef
+// preval`
+// module.exports = process.env.NODE_ENV === 'development' ? () => { middlewares.push(logger) } : () => {}
+// `();
+
 const enhancer = composeEnhancers(
   applyMiddleware(...middlewares)
   // other store enhancers if any
